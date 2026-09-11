@@ -1,3 +1,4 @@
+import Nav from "./component/Nav"
 
 
 function App() {
@@ -5,7 +6,7 @@ function App() {
 
   return (
     <>
- 
+   <Nav/>
     </>
   )
 }
