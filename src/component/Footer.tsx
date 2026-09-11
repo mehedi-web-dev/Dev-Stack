@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 grid-cols-1 space-y-4  justify-between py-12 border-b border-[#f1f5f9]">
           {/* Logo */}
          <div className="flex space-y-2.5 flex-col">
-            <img src={logo} alt="logo" className="w-28 h-8 " />
+            <img src={logo} alt="logo" className="w-[136.2px] h-[32px]" />
             <p className="text-[#64748B] font-normal text-[14px] font-sans w-[70%] ">Curated tools, technologies, and resources for developers building modern software.</p>
             <ul className="flex items-center gap-5 text-[#475569] text-[14px] font-medium font-sans">
               <li><a href="">GitHub</a></li>
