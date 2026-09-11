@@ -5,6 +5,7 @@ import Nav from "./component/Nav"
 import type { TechType } from "./type";
 import Technologies from "./Technologies/Technologies";
 
+
 const TechFetch= async():Promise<TechType[]>=>{
   const res=await fetch("/data.json");
   const data=await res.json()
@@ -18,9 +19,10 @@ function App() {
     <>
    <Nav/>
    <Hero/>
-  <Suspense fallback="Loading data">
+  <Suspense fallback="Loading data........">
     <Technologies TechPromise={TechPromise}></Technologies>
   </Suspense>
+
    <Footer/>
     </>
   )

@@ -1,16 +1,22 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { TechType } from "../type";
+import AllTechnology from "../Technologies/AllTechnology";
+import SelectedTechnology from "./SelectedTechnology";
 
 export interface TechnologiesProps {
   TechPromise: Promise<TechType[]>;
 }
 
 const Technologies = ({ TechPromise}: TechnologiesProps) => {
-    const technologys=use(TechPromise)
+    const technologyies=use(TechPromise)
+    const[selectedTech,setSelectedTech]=useState<TechType[]>([])
   return (
     <div>
-     { technologys.map((technology)=>technology.name)}
+   <div>   {<AllTechnology selectedTech={selectedTech} setSelectedTech={setSelectedTech} technologyies={technologyies}></AllTechnology>}</div>
+   <div>  {<SelectedTechnology selectedTech={selectedTech} setSelectedTech={setSelectedTech}> </SelectedTechnology>}
+     </div>
     </div>
+  
   )
 }
 
