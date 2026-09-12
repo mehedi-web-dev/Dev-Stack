@@ -1,4 +1,4 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import {  type Dispatch, type SetStateAction } from "react";
 import type { TechType } from "../type";
 import { toast } from "react-toastify";
 
@@ -8,18 +8,19 @@ export interface TechCardProps {
 }
 
 const TechCard = ({ technology,selectedTech,setSelectedTech }: TechCardProps) => {
- const [selected,setSelected]=useState(false)
+//  const [selected,setSelected]=useState(false)
+  const isSelected = selectedTech.some(
+    (selected) => selected.id === technology.id
+  );
 
  const handleBtn=():void=>{
-  if(selected===false){
-    setSelected(true)
-    toast.success(`${technology.name} add successfully`)
-  }
-  setSelectedTech([...selectedTech,technology])
-
+ { if (isSelected)return;
+      setSelectedTech([...selectedTech, technology]);
+      toast.success(`${technology.name} added successfully`);
+    }
  }
   return (
- <div className="w-full max-w-72.5 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+ <div className="w-full md:max-w-72.5 rounded-2xl border border-gray-200 bg-white p-5  shadow-sm">
       
  {/* Top Section */}
   <div className="mb-6 flex items-start justify-between">
@@ -44,7 +45,7 @@ const TechCard = ({ technology,selectedTech,setSelectedTech }: TechCardProps) =>
   <div className="flex items-center gap-1 text-sm text-gray-600"><span className="text-yellow-500">★</span>
  <span>{technology.rating}</span></div></div>
  {/* Button */}
- <button onClick={handleBtn} disabled={selected===true} className={`w-full cursor-pointer rounded-lg ${selected===false?"bg-[#151b28]":"bg-[#EC4899]"} py-3 text-sm font-medium text-white transition`}>{selected===false?"Add To Stack":"Selected"}</button></div>
+ <button onClick={handleBtn} disabled={isSelected} className={`w-full cursor-pointer rounded-lg ${isSelected===false?"bg-[#151b28]":"bg-[#EC4899]"} py-3 text-sm font-medium text-white transition`}>{isSelected===true?"Selected":"Add To Stack"}</button></div>
   );
 };
 

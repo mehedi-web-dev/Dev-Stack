@@ -4,7 +4,7 @@ const Nav = () => {
   return (
     
    <div className="border-b border-[#f1f5f9] sticky top-0 bg-white">
-     <div className="md:container mx-auto py-2.5 px-5 flex justify-between items-center">
+     <div className="md:container md:mx-auto md:px-0 py-2.5 px-5 flex justify-between  items-center">
        {/* logo */}
       <div><img src={logo} alt="logo" className="w-[136.2px] h-8"/></div>
        {/* menu */}
