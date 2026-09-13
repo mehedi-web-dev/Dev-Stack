@@ -29,7 +29,7 @@ const TechCard = ({ technology,selectedTech,setSelectedTech }: TechCardProps) =>
     <img src={technology.icon}alt={technology.name}className="h-8 w-8 object-contain"/></div>
 
   {/* Badge */}
-   <span className="rounded-full border border-orange-100 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-500">{technology.badge} </span></div>
+   <span className="rounded-full border border-orange-100 bg-orange-50 px-3 py-1 text-xs font-medium text-[#FF6B18]">{technology.badge} </span></div>
  {/* Name */}
   <h2 className="mb-2 text-xl font-semibold text-gray-800"> {technology.name}</h2>
  {/* Description */}
