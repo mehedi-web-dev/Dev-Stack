@@ -16,9 +16,9 @@ const Technologies = ({ TechPromise}: TechnologiesProps) => {
   return (
     <div className="md:container md:mx-auto md:py-12 py-10 px-5 ">
       <div className="mb-10">
-         <h1 className="text-2xl md:text-4xl text-center md:text-left font-bold text-[#1f2937]">
+         <h1 className="text-3xl md:text-4xl text-center md:text-left font-bold text-[#1f2937]">
         Explore the{" "}
-        <span className="text-[#EC4899] ">
+        <span className=" bg-linear-to-r from-[#F5722A] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent ">
           Technologies
         </span>
       </h1>

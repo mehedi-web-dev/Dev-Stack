@@ -1,6 +1,5 @@
+import { FaBarsStaggered } from "react-icons/fa6";
 import logo from "../assets/logo-text.png";
-import {LuMenu } from "react-icons/lu";
-
 
 const Nav = () => {
   return (
@@ -10,7 +9,7 @@ const Nav = () => {
      <div className="md:container md:mx-auto md:px-0 py-2.5 px-5 flex justify-between  items-center">
          {/* hm.menu */}
          <div className="md:hidden block ">
-         <LuMenu className="text-2xl" ></LuMenu>
+         <FaBarsStaggered />
          </div >
        {/* logo */}
       <div ><img src={logo} alt="logo" className="md:w-[136.2px] md:h-8 w-[122.2px] h-6 "/></div>

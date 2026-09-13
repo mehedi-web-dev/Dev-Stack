@@ -13,8 +13,8 @@ export interface SelectedTechnologyProps {
 const SelectedTechnology = ({selectedTech,setSelectedTech,}: SelectedTechnologyProps) => {
   const handleRemove = (id: number) => {
     const remainingTech = selectedTech.filter((tech) => tech.id !== id);
- setSelectedTech(remainingTech)
- toast.error("Stack remove successfully");};
+ setSelectedTech(remainingTech),
+ toast.success(`Stack remove successfully`);};
 
 
 const handleRemoveAll = () => {
@@ -28,8 +28,7 @@ toast.error("Remove All Stack");};
       {selectedTech.length===0?(<p className="text-[#94A3B8] text-[15px] font-normal font-sans">No technologies selected yet.</p>):(<p className="mt-1 text-sm text-gray-400">{selectedTech.length} technology selected </p>)}
 
 
- {selectedTech.length===0?(<div className="p-5 flex justify-center items-center mt-2 border border-[#E5E7EB]"><p className="text-[#94A3B8] text-center text-[15px] font-normal font-sans">Your stack is empty</p></div>):( <div className="mt-4 space-y-2">{selectedTech.map((tech) => (
-<div key={tech.id}className="flex items-center justify-between rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-sm">
+ {selectedTech.length===0?(<div className="p-5 flex justify-center items-center mt-2 border border-[#E5E7EB]"><p className="text-[#94A3B8] text-center text-[15px] font-normal font-sans">Your stack is empty</p></div>):( <div className="mt-4 space-y-2">{selectedTech.map((tech) => (<div key={tech.id}className="flex items-center justify-between rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-sm">
 
 
  <div className="flex items-center gap-3">

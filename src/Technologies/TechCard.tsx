@@ -1,6 +1,7 @@
 import {  type Dispatch, type SetStateAction } from "react";
 import type { TechType } from "../type";
 import { toast } from "react-toastify";
+import { FaStar } from "react-icons/fa";
 
 export interface TechCardProps {
   technology: TechType;
@@ -13,12 +14,19 @@ const TechCard = ({ technology,selectedTech,setSelectedTech }: TechCardProps) =>
     (selected) => selected.id === technology.id
   );
 
- const handleBtn=():void=>{
- { if (isSelected)return;
-      setSelectedTech([...selectedTech, technology]);
-      toast.success(`${technology.name} added successfully`);
-    }
- }
+
+const handleBtn = () => {
+  const isSelected = selectedTech.some(
+    (selected) => selected.name === technology.name
+  );
+  if (isSelected) {
+    toast.error(`${technology.name} already added`);
+    return;
+  }
+  setSelectedTech([...selectedTech, technology]);
+  toast.success(`${technology.name} added successfully`);
+};
+
   return (
  <div className="w-full md:max-w-72.5 rounded-2xl border border-[#f1f5f9] bg-white p-5  shadow-sm">
       
@@ -29,23 +37,23 @@ const TechCard = ({ technology,selectedTech,setSelectedTech }: TechCardProps) =>
     <img src={technology.icon}alt={technology.name}className="h-8 w-8 object-contain"/></div>
 
   {/* Badge */}
-   <span className="rounded-full border border-orange-100 bg-orange-50 px-3 py-1 text-xs font-medium text-[#FF6B18]">{technology.badge} </span></div>
+   <span className="rounded-full border border-orange-100 bg-orange-50 px-3 py-1 text-[12px] md:text-[14px] font-medium text-[#FF6B18]">{technology.badge} </span></div>
  {/* Name */}
-  <h2 className="mb-2 text-xl font-semibold text-gray-800"> {technology.name}</h2>
+  <h2 className="mb-2 text-[16px] md:text-[18px] font-sans  font-semibold text-gray-800"> {technology.name}</h2>
  {/* Description */}
-  <p className="mb-5 text-sm leading-6 text-[#64748B]"> {technology.description} </p>
+  <p className="mb-5 text-[12px] md:text-[14px] font-sans leading-6 text-[#64748B]"> {technology.description} </p>
  {/* Bottom Info */}
  <div className="mb-4 flex items-center justify-between">
  {/* Category */}
- <span className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-500">{technology.category}</span>
+ <span className="rounded bg-gray-100 font-sans  px-2 py-1 text-[12px] md:text-[14px] text-gray-500">{technology.category}</span>
 
  {/* Difficulty */}
- <span className="text-xs text-gray-500">{technology.difficulty}</span>
+ <span className="text-[12px] md:text-[14px] font-sans  text-gray-500">{technology.difficulty}</span>
  {/* Rating */}
-  <div className="flex items-center gap-1 text-sm text-gray-600"><span className="text-yellow-500">★</span>
+  <div className="flex items-center gap-1 text-sm text-gray-600"><span className="text-yellow-500">{<FaStar />}</span>
  <span>{technology.rating}</span></div></div>
  {/* Button */}
- <button onClick={handleBtn} disabled={isSelected} className={`w-full cursor-pointer rounded-lg ${isSelected===false?"bg-[#151b28]":"bg-[#EC4899]"} py-3 text-sm font-medium text-white transition`}>{isSelected===true?"Selected":"Add To Stack"}</button></div>
+ <button onClick={handleBtn} className={`w-full cursor-pointer rounded-lg ${isSelected===false?"bg-[#151b28]":"bg-[#EC4899]"} py-3 font-sans  text-[12px] font-medium text-white transition`}>{isSelected===true?"Selected":"Add To Stack"}</button></div>
   );
 };
 
