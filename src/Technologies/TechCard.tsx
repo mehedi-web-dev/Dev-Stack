@@ -20,7 +20,7 @@ const TechCard = ({ technology,selectedTech,setSelectedTech }: TechCardProps) =>
     }
  }
   return (
- <div className="w-full md:max-w-72.5 rounded-2xl border border-gray-200 bg-white p-5  shadow-sm">
+ <div className="w-full md:max-w-72.5 rounded-2xl border border-[#f1f5f9] bg-white p-5  shadow-sm">
       
  {/* Top Section */}
   <div className="mb-6 flex items-start justify-between">
@@ -33,7 +33,7 @@ const TechCard = ({ technology,selectedTech,setSelectedTech }: TechCardProps) =>
  {/* Name */}
   <h2 className="mb-2 text-xl font-semibold text-gray-800"> {technology.name}</h2>
  {/* Description */}
-  <p className="mb-5 text-sm leading-6 text-gray-500"> {technology.description} </p>
+  <p className="mb-5 text-sm leading-6 text-[#64748B]"> {technology.description} </p>
  {/* Bottom Info */}
  <div className="mb-4 flex items-center justify-between">
  {/* Category */}
